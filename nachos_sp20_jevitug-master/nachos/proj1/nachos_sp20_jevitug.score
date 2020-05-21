@@ -1,0 +1,45 @@
+------[ Sat May  9 19:04:22 2020 ]------
+PASS : +0.83 : 0.83 : CV2 - Test if sleep has acquired the lock
+PASS : +0.83 : 1.67 : CV2 - Test if wake has acquired the lock
+PASS : +0.83 : 2.50 : CV2 - Test if wakeAll has acquired the lock
+PASS : +5.83 : 8.33 : CV2 - Test if sleep() sleeps until someone wakes it up
+PASS : +5.83 : 14.17 : CV2 - Test if wake() wakes exactly one sleeping thread
+PASS : +5.83 : 20.00 : CV2 - Test if wakeAll() wakes all the sleeping threads
+PASS : +2.50 : 22.50 : CV2 - Test if wake has no effect when there is no thread sleeping
+PASS : +2.50 : 25.00 : CV2 - Test if wakeAll has no effect when there is no thread sleeping
+PASS : +3.70 : 28.70 : SLEEP FOR - Thread resumes because the timeout expires (wake never called)
+PASS : +0.74 : 29.44 : SLEEP FOR - Thread resumes due to wake, timeout cancelled
+PASS : +0.74 : 30.19 : SLEEP FOR - One thread resumes due to wake, another due to timeout
+PASS : +0.74 : 30.93 : SLEEP FOR - One thread calls sleep, another calls sleepFor, wake is never called...
+PASS : +0.74 : 31.67 : SLEEP FOR - Many threads call sleepFor, all should timeout.
+PASS : +0.74 : 32.41 : SLEEP FOR - With many threads, half call sleepFor and should timeout, the...
+PASS : +0.37 : 32.78 : SLEEP FOR - Thread resumes because the timeout expires, wake called after the timeout
+PASS : +1.11 : 33.89 : SLEEP FOR - With many threads, half call sleepFor and the other half call sleep. wakeAll...
+PASS : +0.74 : 34.63 : SLEEP FOR - If a waitUntil expires, and some other thread calls wake before it continues
+PASS : +7.00 : 41.63 : RENDEZVOUS - One Exchange.
+PASS : +1.00 : 42.63 : RENDEZVOUS - Third Thread should block.
+PASS : +2.00 : 44.63 : RENDEZVOUS - Two threads repeatedly exchanging.
+PASS : +1.00 : 45.63 : RENDEZVOUS - Even threads, no blocking.
+PASS : +4.00 : 49.63 : RENDEZVOUS - Test many threads exchanging on the same tag.
+PASS : +1.00 : 50.63 : RENDEZVOUS - Test 1 with multiple tags.
+PASS : +1.00 : 51.63 : RENDEZVOUS - Test 2 with multiple tags.
+PASS : +1.00 : 52.63 : RENDEZVOUS - Test 3 with multiple tags.
+PASS : +1.00 : 53.63 : RENDEZVOUS - Test 4 with multiple tags.
+PASS : +1.00 : 54.63 : RENDEZVOUS - Test 5 with multiple tags.
+PASS : +3.00 : 57.63 : RENDEZVOUS - Many Instances of Initial Tests in parallel.
+PASS : +2.00 : 59.63 : RENDEZVOUS - Test independence of multiple Rendezvous instances.
+PASS : +6.00 : 65.63 : JOIN - Test join() after child had finished.
+PASS : +6.00 : 71.63 : JOIN - Test join() before child finishes
+PASS : +2.00 : 73.63 : JOIN - Test join() on different childs right after spawn, one by one
+PASS : +2.00 : 75.63 : JOIN - Test join() on different childs; all children are spawned first, then joined one by one.
+FAIL : +2.00 : 75.63 : JOIN - Test differnt threads join different other threads.
+FAIL : +1.00 : 75.63 : JOIN - Test joining same thread multiple times should be an error.
+PASS : +1.00 : 76.63 : JOIN - Test joining oneself should be an error.
+PASS : +2.00 : 78.63 : ALARM - Tests waitUntil to ensure it waits at least minimum amount of time
+PASS : +2.00 : 80.63 : ALARM - Tests whether waitUntil actually wakes up at correct time
+PASS : +2.00 : 82.63 : ALARM - Test if waking up threads in proper order - not necessarily sleep order
+PASS : +10.00 : 92.63 : ALARM - Test if thds are waken up at proper time
+PASS : +2.00 : 94.63 : ALARM - Tests proper handling of negative wait times.
+PASS : +2.00 : 96.63 : ALARM - Tests if mistakenly waking all the threads
+FAIL : +0.37 : 96.63 : ALARM CANCEL - Test if cancel works
+Autograde Score: 96.63 / 100
