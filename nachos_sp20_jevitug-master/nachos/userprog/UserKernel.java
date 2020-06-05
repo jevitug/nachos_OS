@@ -3,11 +3,22 @@ package nachos.userprog;
 import nachos.machine.*;
 import nachos.threads.*;
 import nachos.userprog.*;
-
+import java.util.LinkedList;
 /**
  * A kernel that can support multiple user processes.
  */
 public class UserKernel extends ThreadedKernel {
+	//static linked list to manage free physical pages of memory
+	public static LinkedList<Integer> physPages;
+	//lock used for controlling race conditions for physical pages in UserProcess.java
+	public static Lock physLock;
+	//lock used for controlling race conditions in updating process ID's for Part 3
+	//in UserProcess.java
+	public static Lock pidLock;
+	//keep track of number of processes
+	public static int pCount;
+	//lock for controlling race conditions when updating pCount
+	public static Lock countLock;
 	/**
 	 * Allocate a new user kernel.
 	 */
@@ -29,6 +40,17 @@ public class UserKernel extends ThreadedKernel {
 				exceptionHandler();
 			}
 		});
+		//added for proj2
+		physPages = new LinkedList<Integer>();
+		//add phyiscal pages in memory to physPages LinkedList
+		for(Integer i = 0; i < Machine.processor().getNumPhysPages(); i++){
+			physPages.add(i);
+		}
+		physLock = new Lock();
+		//adding for part 3
+		pidLock = new Lock();
+		pCount = 0;
+		countLock = new Lock();
 	}
 
 	/**
@@ -39,7 +61,7 @@ public class UserKernel extends ThreadedKernel {
 
 		System.out.println("Testing the console device. Typed characters");
 		System.out.println("will be echoed until q is typed.");
-
+		//System.out.println("There are " + physPages.size() + " pPages available");
 		char c;
 
 		do {

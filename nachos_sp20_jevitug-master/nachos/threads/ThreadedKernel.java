@@ -55,7 +55,7 @@ public class ThreadedKernel extends Kernel {
 		//}
 		//Alarm.alarmTest1();
 		//Alarm.alarmTest2();
-		Rendezvous.selfTest();
+		//Rendezvous.selfTest();
 	}
 
 
